@@ -77,8 +77,8 @@ public class HomeController : Controller
     public async Task<IActionResult> Guardar(string codigo)
     {
         string httpStatusCode = HttpStatusCode.BadRequest.ToString();
-       
-        httpStatusCode = await _servicioApi.BorrarProducto(codigo)
+
+        httpStatusCode = await _servicioApi.BorrarProducto(codigo);
       
 
         if (httpStatusCode.Equals(HttpStatusCode.OK.ToString()))
