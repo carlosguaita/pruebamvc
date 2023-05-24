@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using static System.Net.WebRequestMethods;
 
 namespace APIpetshop.Models
 {
@@ -13,6 +14,8 @@ namespace APIpetshop.Models
 
         public DbSet<Producto> productos { get; set; }
         public DbSet<Cliente> clientes { get; set; }
+
+        public DbSet<Contacto> contactos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -76,6 +79,38 @@ namespace APIpetshop.Models
                     telefono = "0912349876"
                 }
                 );
+
+            modelBuilder.Entity<Contacto>().HasData(
+                new Contacto
+                {
+                    idContacto = 1,
+                    nombre = "Carlos Guaita",
+                    cedula = "1715607071",
+                    direccion = "La Tola",
+                    telefono = "0984667518",
+                    imagen= "https://cdn-icons-png.flaticon.com/512/3577/3577429.png"
+                },
+                new Contacto
+                {
+                    idContacto = 2,
+                    nombre = "Luis Quishpe",
+                    cedula = "0987654321",
+                    direccion = "Ajaví",
+                    telefono = "0912345678",
+                    imagen = "https://cdn-icons-png.flaticon.com/512/1198/1198293.png"
+
+                },
+                new Contacto
+                {
+                    idContacto = 3,
+                    nombre = "Edgar Guijarro",
+                    cedula = "1712349876",
+                    direccion = "Tumbaco",
+                    telefono = "0912349876",
+                    imagen = "https://cdn-icons-png.flaticon.com/512/1373/1373254.png"
+                }
+                );
+
         }
 
     }

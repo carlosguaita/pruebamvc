@@ -9,7 +9,11 @@ namespace APIpetshop.Models
 			public List<Producto> listaProductos { get; set; }
 
             public Producto producto { get; set; }
-        
-	}
+
+            public List<Contacto> listaContactos{ get; set; }
+
+            public Contacto contacto{ get; set; }
+
+    }
 }
 

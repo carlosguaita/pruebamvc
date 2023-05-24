@@ -11,15 +11,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIpetshop.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230411025834_AgregarDatos")]
-    partial class AgregarDatos
+    [Migration("20230517202552_CrearTablas")]
+    partial class CrearTablas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.4")
+                .HasAnnotation("ProductVersion", "7.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -74,6 +74,68 @@ namespace APIpetshop.Migrations
                             idCliente = 3,
                             cedula = "1712349876",
                             direccion = "Tumbaco",
+                            nombre = "Edgar Guijarro",
+                            telefono = "0912349876"
+                        });
+                });
+
+            modelBuilder.Entity("APIpetshop.Models.Contacto", b =>
+                {
+                    b.Property<int>("idContacto")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("idContacto"));
+
+                    b.Property<string>("cedula")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("direccion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("imagen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("telefono")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("idContacto");
+
+                    b.ToTable("contactos");
+
+                    b.HasData(
+                        new
+                        {
+                            idContacto = 1,
+                            cedula = "1715607071",
+                            direccion = "La Tola",
+                            imagen = "https://cdn-icons-png.flaticon.com/512/3577/3577429.png",
+                            nombre = "Carlos Guaita",
+                            telefono = "0984667518"
+                        },
+                        new
+                        {
+                            idContacto = 2,
+                            cedula = "0987654321",
+                            direccion = "Ajaví",
+                            imagen = "https://cdn-icons-png.flaticon.com/512/1198/1198293.png",
+                            nombre = "Luis Quishpe",
+                            telefono = "0912345678"
+                        },
+                        new
+                        {
+                            idContacto = 3,
+                            cedula = "1712349876",
+                            direccion = "Tumbaco",
+                            imagen = "https://cdn-icons-png.flaticon.com/512/1373/1373254.png",
                             nombre = "Edgar Guijarro",
                             telefono = "0912349876"
                         });

@@ -14,7 +14,10 @@ namespace pruebamvc.Services
 
 		public ServicioApi()
 		{
-			var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
+			var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
 			_baseUrl = builder.GetSection("ApiSettings:baseUrl").Value;
 		}
 
