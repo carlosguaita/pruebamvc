@@ -6,7 +6,7 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["APIpetshop/APIpetshop.csproj", "APIpetshop/"]
+COPY ["APIpetshop.csproj", "APIpetshop/"]
 RUN dotnet restore "APIpetshop/APIpetshop.csproj"
 COPY . .
 WORKDIR "/src/APIpetshop"
